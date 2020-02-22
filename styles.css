@@ -131,7 +131,10 @@ input {
   }
 
   .holiday {
-    height: 144px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 144px;
     width: 32%;
     margin-bottom: 6px;
   }
