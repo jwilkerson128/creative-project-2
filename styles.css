@@ -2,5 +2,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #2E25DA;
+}
+
+body {
+  width: 100%;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.holiday {
+  border: 1px solid black;
+}
+
+.footer {
+  background-color: #2E25DA;
+  padding: 10px 5px;
+  margin-top: 10px;
 }
