@@ -28,12 +28,13 @@ document.getElementById("countrySubmit").addEventListener("click", function(even
       let results = "";
 
       if(holidays.length==0) {
-        results = "<p> No holidays in the country and day(s) selected </p>"
+        results += "<p> No holidays in the country and day(s) selected </p>"
       }
       else {
         //If a specific date was selected (most detail)
         if(monthValue!=0 && dayValue!="") {
-          results = "<h2>Holidays on " + holidays[0].date.iso + "</h2>";
+          results += "<h2>Holidays on " + holidays[0].date.iso + "</h2>";
+          results += "<div class='holiday-container'>";
           for (holiday of holidays){
             name = holiday.name;
             description = holiday.description;
@@ -44,21 +45,24 @@ document.getElementById("countrySubmit").addEventListener("click", function(even
             type=type.substring(0,type.length-2);
             results+="<div class='holiday'>";
             results+="<h3>" + name + "</h3>";
-            results+="<p>" + description + "</p>";
-            results+="<p>" + type + "</p>";
+            results+="<p>Description: " + description + "</p>";
+            results+="<p>Type: " + type + "</p>";
             results+="</div>";
           }
+          results += "</div>";
         }
 
         //If either a day or month was selected (medium detail)
         else if(monthValue!=0 || dayValue!="") {
           if(monthValue!=0){
-            results = "<h2>Holidays in " + months[monthValue-1] + "</h2>";
+            results += "<h2>Holidays in " + months[monthValue-1] + "</h2>";
           }
 
           else {
-            results = "<h2>Holidays on day " + dayValue + " of each month</h2>";
+            results += "<h2>Holidays on day " + dayValue + " of each month</h2>";
           }
+
+          results += "<div class='holiday-container'>";
 
           for (holiday of holidays){
             name = holiday.name;
@@ -70,23 +74,29 @@ document.getElementById("countrySubmit").addEventListener("click", function(even
             type=type.substring(0,type.length-2);
             results+="<div class='holiday'>";
             results+="<h3>" + name + "</h3>";
-            results+="<p>" + date + "</p>";
-            results+="<p>" + type + "</p>";
+            results+="<p>Date: " + date + "</p>";
+            results+="<p>Type: " + type + "</p>";
             results+="</div>";
           }
+
+          results += "</div>";
         }
+
+
 
         //If neither a day nor a month was selected (least detail)
         else {
-          results = "<h2>Yearly Holidays</h2>";
+          results += "<h2>Yearly Holidays</h2>";
+          results += "<div class='holiday-container'>";
           for (holiday of holidays){
             name = holiday.name;
             date = holiday.date.iso.substring(5);
             results+="<div class='holiday'>";
             results+="<h3>" + name + "</h3>";
-            results+="<p>" + date + "</p>";
+            results+="<p>Date: " + date + "</p>";
             results+="</div>";
           }
+          results += "</div>";
         }
       }
 

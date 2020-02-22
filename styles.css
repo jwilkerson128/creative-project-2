@@ -2,23 +2,137 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
   width: 100%;
   padding: 10px;
+  background-color: #eee;
+  color: #1b1b1b;
 }
 
-h1 {
+h1, h2, h3 {
   text-align: center;
+  padding: 10px;
+}
+
+h2 {
+  color: #2E25DA;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+p {
+  padding: 10px;
+}
+
+a {
+  color: #fff;
+  padding: 10px;
+}
+
+a:hover {
+  color: #D1DA25;
+}
+
+/*My select boxes were not showing up well, so I adapted this formatting from
+https://www.filamentgroup.com/lab/select-css.html*/
+select {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 16px;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: .6em 1.4em .5em .8em;
+  max-width: 60%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
+  border-radius: .25em;
+  background-color: #fff;
+  margin-left: auto;
+}
+
+select option {
+  font-weight: normal;
+}
+
+input {
+  margin-left: auto;
+}
+
+.form-line {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+}
+
+#dayInput {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 16px;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding-left: 5px;
+  width: 40px;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
+  border-radius: .25em;
+  background-color: #fff;
+  margin-left: auto;
+}
+
+.holiday-container {
+  margin-bottom: 20px;
 }
 
 .holiday {
-  border: 1px solid black;
+  border: 1px solid #2E25DA;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 2px;
+  max-width: 250px;
 }
 
 .footer {
   background-color: #2E25DA;
-  padding: 10px 5px;
-  margin-top: 10px;
+  padding: 3px;
+  margin-top: 5px;
+}
+
+.footer p {
+  padding-top: 3px;
+  color: #fff;
+}
+
+/*Desktop*/
+@media only screen and (min-width: 961px) {
+  body {
+    width: 800px;
+    margin: auto;
+  }
+
+  .holiday-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .holiday {
+    height: 144px;
+    width: 32%;
+    margin-bottom: 6px;
+  }
 }
